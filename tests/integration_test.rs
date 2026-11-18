@@ -1,10 +1,18 @@
 // Integration test for SigmaOS-arch-shader-apprenticeships-kernel
 // Verifies the crate builds and links as a dependency.
-#![allow(unused_imports)]
 
-use arch_shader_apprenticeships_kernel as _;
+use sigmaos_arch_shader_apprenticeships_kernel::{ShaderManager, ShaderSource, ShaderType};
 
 #[test]
 fn crate_links_and_runs() {
-    assert_eq!(2 + 2, 4);
+    // Arrange
+    let mut mgr = ShaderManager::new();
+    let source = ShaderSource::new("vertex", ShaderType::Vertex, "void main() {}");
+
+    // Act
+    let res = mgr.compile(source);
+
+    // Assert
+    assert!(res.is_ok());
+    assert_eq!(mgr.list_shaders().len(), 1);
 }

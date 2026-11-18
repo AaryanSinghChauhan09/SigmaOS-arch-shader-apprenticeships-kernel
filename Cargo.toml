@@ -1,10 +1,13 @@
 [package]
-name = "arch-shader-apprenticeships-kernel"
+name = "sigmaos-arch-shader-apprenticeships-kernel"
 version = "0.1.0"
 edition = "2021"
-description = "SigmaOS SigmaOS-arch-shader-apprenticeships-kernel component - Inspired by Arch Linux and Debian"
+description = "Apprenticeships shader kernel for SigmaOS"
 license = "MIT"
 repository = "https://github.com/AaryanSinghChauhan09/SigmaOS-arch-shader-apprenticeships-kernel"
 
 [dependencies]
-thiserror = "2"
+
+[lib]
+name = "sigmaos_arch_shader_apprenticeships_kernel"
+path = "src/lib.rs"
